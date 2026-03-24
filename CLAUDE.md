@@ -1,0 +1,54 @@
+# CLAUDE.md — AI Agent Context for IKEA GROUP POC
+
+## Project Type
+This is an **Adobe Experience Manager Edge Delivery Services (EDS)** project.
+Reference documentation: https://www.aem.live
+LLM-optimized docs: https://www.aem.live/llms.txt
+
+## Key Rules for AI Agents
+1. **This is NOT a React/Next.js project.** It uses vanilla JS/CSS with the EDS block decorator pattern.
+2. Every block lives in `/blocks/<block-name>/` with a JS file and optional CSS file.
+3. Block JS exports a default `decorate(block)` function that receives a `<div>` element.
+4. Content comes from Word/Google Docs via Document Authoring (DA) — NOT from a CMS database.
+5. DO NOT use npm, webpack, or any build tools. Scripts load via `/scripts/scripts.js`.
+6. CSS uses vanilla CSS custom properties. NO Tailwind, NO SASS.
+
+## Block Decorator Pattern
+```js
+export default function decorate(block) {
+  // block is a <div> with class matching the block name
+  // Rows = block.children, Cells = row.children
+  const rows = [...block.children];
+  rows.forEach((row) => {
+    const cols = [...row.children];
+    // Transform DOM here
+  });
+}
+```
+
+## Customer Context
+- **Customer**: IKEA GROUP
+- **Vertical**: Retail
+- **DR#**: DR3895858
+- **Demo Moments**: Blazing Fast Authoring & Live Updates with Universal Editor + DA, Headless Delivery with Content Fragments & GraphQL for Omnichannel, AI-Assisted Content Generation & DAM Integration, Global Localisation & Multi-Site Management (Pattern, not Product for DA), Native A/B Experimentation at the Edge (EDS Experiment Block)
+
+## Blocks in This Repo
+- `/blocks/hero/`
+- `/blocks/cards/`
+- `/blocks/carousel/`
+- `/blocks/fragment/`
+- `/blocks/columns/`
+- `/blocks/embed/`
+- `/blocks/table/`
+- `/blocks/section-metadata/`
+
+## Brand & Design
+- Brand CSS is in `/styles/brand.css`
+- Customer colors and fonts are defined as CSS custom properties
+- All block CSS should use `var(--color-brand-*)` tokens for theming
+
+## What NOT to Do
+- Do NOT generate React components
+- Do NOT use `import` for CSS (use `<link>` or CSS loaded by scripts.js)
+- Do NOT create package.json or node_modules
+- Do NOT modify /scripts/aem.js (it's the EDS runtime)

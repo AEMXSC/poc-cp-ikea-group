@@ -1,0 +1,38 @@
+/* Auto-generated from customer branding */
+:root {
+  --color-brand-primary: #CC0008;
+  --color-brand-accent: #0058A3;
+  --color-brand-background: #FFFFFF;
+  --color-brand-text: #111111;
+  --font-family-body: 'Noto Sans', sans-serif;
+  --font-family-heading: 'Noto Sans', sans-serif;
+  --border-radius: 8px;
+}
+
+body {
+  font-family: var(--font-family-body, sans-serif);
+  color: var(--color-brand-text, #1a1a1a);
+  background-color: var(--color-brand-background, #ffffff);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading, var(--font-family-body, sans-serif));
+}
+
+header, nav {
+  background-color: var(--color-brand-primary, #003087);
+  color: #ffffff;
+}
+
+.button, a.button {
+  background-color: var(--color-brand-primary, #003087);
+  color: #ffffff;
+  border-radius: var(--border-radius, 4px);
+  padding: 12px 24px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: var(--color-brand-secondary, var(--color-brand-primary));
+}
